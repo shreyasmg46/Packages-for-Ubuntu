@@ -1,0 +1,21 @@
+# Pre-requsite that need to be installed on the ubuntu 20.04 machine
+
+1. Installation of aws-cli
+	Refer https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+2. Installation of git
+	sudo apt-get install git
+3. Installation of JDK 8
+	sudo apt-get install openjdk-8-jdk
+4. Installation of Apache Maven 
+	sudo apt-get install maven
+5. Installation of Intellij 
+	sudo snap install intellij-idea-community --classic
+
+6. Installation of Sublime text (Optional) (Only for Windows)
+	sudo apt update
+	sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
+	curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+	sudo add-apt-repository "deb https://download.sublimetext.com/ apt/stable/"
+	sudo apt install sublime-text
+
+
