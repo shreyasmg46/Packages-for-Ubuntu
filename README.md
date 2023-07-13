@@ -1,2 +1,2 @@
 # Packages-for-Ubuntu
-Some of the packages commands for Ubuntu 20.04
+Some of the package commands for Ubuntu 20.04
