@@ -1,4 +1,4 @@
-# Pre-requsite that need to be installed on the ubuntu 20.04 machine
+# Recommended packages that need to be installed on the ubuntu 20.04 operating system
 
 1. Installation of aws-cli
 	Refer https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
@@ -18,4 +18,84 @@
 	sudo add-apt-repository "deb https://download.sublimetext.com/ apt/stable/"
 	sudo apt install sublime-text
 
+# Installation of Wordpress on httpd package (LAMP Stack)
 
+1. Update the package
+	sudo apt-get update
+
+2. Installation of apache2 (httpd in am-linux) package
+	sudo apt install apache2
+
+3. To Start, Status and Enable the service
+	sudo systemctl start apache2
+	sudo systemctl status apache2
+	sudo systemctl enable apache2
+
+4. Open your web browser, and type localhost in the address box to verify that the Apache server has been started.
+	(Note: Open the port 80 in inbound rules under security groups)
+
+5. Installation of MySQL
+	sudo apt install mysql-server
+	sudo mysql_secure_installation and set the password
+
+6. Enable and check the status of servic
+	sudo systemctl enable mysql
+	sudo systemctl status mysql
+
+7. Installation of php
+	sudo apt install php libapache2-mod-php php-mysql
+	sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip
+
+	To Verify,
+	php -v
+
+8. Restart the service
+	sudo systemctl restart apache2
+
+9. Install WordPress
+
+	cd /var/www/html
+
+	Now download the latest WordPress install with the following command
+
+	sudo wget -c http://wordpress.org/latest.tar.gz
+
+	sudo tar -xzvf latest.tar.gz
+	
+	mv latest wordpress
+
+We are using Apache as our web server. Apache is running on Ubuntu 20.04. The following command will allow you to change the owner of these files and set the appropriate permissions
+
+	sudo chown -R www-data:www-data /var/www/html/wordpress
+
+10. Create the database
+   
+   Login to MySQL - sudo mysql -u root -p
+
+	CREATE DATABASE demo_db;	
+
+To access the new database, we will create a MySQL user account. Enter a password
+	CREATE USER demo_user@localhost IDENTIFIED BY 'admin123';
+	
+	GRANT ALL PRIVILEGES ON demo_db. * TO demo_user@localhost;
+
+	FLUSH PRIVILEGES;
+	
+	exit;
+
+11. Setup and Configure WordPress
+
+ next and final step is to set up and configure WordPress. Firstly, you need to create a configuration file for WordPress. So, rename the sample WordPress configuration file using the following command
+	(Note: cd /var/www/html/wordpress)
+	mv wp-config-sample.php wp-config.php
+
+	Edit the config file
+	gedit wp-config.php
+
+12. Update the database settings by replacing demo_db, demo_user, and demo_password with your own details.
+	
+	define( 'DB_NAME', 'demo_db' );
+	define( 'DB_USER', 'demo_user' );
+	define( 'DB_PASSWORD', 'demo-password');
+
+Save and Exit
