@@ -1,0 +1,43 @@
+# Sample of Python, JSON, YAML files/format respectively
+
+
+#In Python Format
+devops={"skill:"DevOps", "Year":"2023", "Tech":{"Cloud":"AWS", "Containers":"k8s", "CICD":"Jenkins", "GitOps":["GitLab","ArgoCD","Tekton"]} }
+print(devops)
+
+
+#In JSON Format
+
+{
+  "skill":"DevOps"
+  "Year":"2023"
+  "Tech":
+     {
+       "Cloud":"AWS"
+       "Containers":"k8s"
+       "CICD":"Jenkins"
+       "GitOps":
+           [
+	     "GitLab"
+	     "ArgoCD"
+	     "Tekton"
+	     ]
+      }
+}
+
+
+
+#In YAML Format
+
+devops:
+   skill: DevOps
+   Year: 2023
+   Tech:
+     Cloud:AWS
+     Containers:k8s
+     CICD:Jenkins
+     GitOps:
+       - GitLab
+       - ArgoCD
+       - Tekton
+
